@@ -119,7 +119,7 @@ real_Shape=[]
 for i, box in enumerate(letterlist):
     (x,y,w,h) = box
     bg = thresh[y:y+h,x:x+w]
-    #處理崎零地
+    #處理畸零地
     if i == 0 or i == nChar:
         lifearea = 0
         nn =0
@@ -171,15 +171,12 @@ bg=cv2.resize(bg,(bg_w*times,bg_h*times))
 cv2.imshow("plate2",bg)
 
 
-#變
-
-
 ocr_enpoint = "https://wusc-computer-vision.cognitiveservices.azure.com/"
 ocr_key="e57e8cebdb124ca9a1f78b4891fc1d73"
 
 service_options =cvsdk.VisionServiceOptions(ocr_enpoint,ocr_key)
 
-#把抓到的檔案
+#抓到的檔案
 #imgFile ="realPlate/resizejpg001.bmp"
 vision_source=cvsdk.VisionSource(filename=fileName)
 
